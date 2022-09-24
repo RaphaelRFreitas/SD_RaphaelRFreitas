@@ -26,4 +26,4 @@ jobs:
       - name: Teste com maven
         run: |
           cd lab_rest_server
-          mvrw clean test
+          mvn test

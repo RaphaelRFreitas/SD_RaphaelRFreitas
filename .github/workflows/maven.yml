@@ -26,9 +26,4 @@ jobs:
       - name: Teste com maven
         run: |
           cd lab_rest_server
-          mvn clean test site
-      - name: Upload artefatos de teste
-        uses: actions/upload-artifact@v3
-        with:
-          name: relatorio-testes
-          path: lab_rest_server/target/site/
+          mvrw clean test

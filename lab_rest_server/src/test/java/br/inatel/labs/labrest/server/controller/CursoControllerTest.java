@@ -70,20 +70,16 @@ class CursoControllerTest {
 	void dadoCursoValido_quandoPutCurso_entaoResponderComCursoAtualizado() {
 		Curso cursoParaAtualizar = new Curso();
 		cursoParaAtualizar.setId(1L);
-		cursoParaAtualizar.setDescricao("Curso de Teste");
+		cursoParaAtualizar.setDescricao("Curso de Teste Atualizado");
 		cursoParaAtualizar.setCargaHoraria(100);
 
-		Curso cursoAtualizado = webTestClient.put().uri("/curso")
+		webTestClient.put().uri("/curso")
 			.contentType(MediaType.APPLICATION_JSON)
 			.bodyValue(cursoParaAtualizar)
 			.exchange()
-			.expectStatus().isOk()
-			.expectBody(Curso.class).returnResult().getResponseBody();
+			.expectStatus().isAccepted()
+			.expectBody().isEmpty();
 
-		assertNotNull(cursoAtualizado);
-		assertEquals(cursoParaAtualizar.getId(), cursoAtualizado.getId());
-		assertEquals(cursoParaAtualizar.getDescricao(), cursoAtualizado.getDescricao());
-		assertEquals(cursoParaAtualizar.getCargaHoraria(), cursoAtualizado.getCargaHoraria());
 	}
 
 	@Test

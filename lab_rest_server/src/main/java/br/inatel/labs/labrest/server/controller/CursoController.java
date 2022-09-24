@@ -49,7 +49,7 @@ public class CursoController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public void deletar(@PathVariable("id") Long cursoId){
         Optional<Curso> opCurso = servico.pesquisarCursoPorId(cursoId);
         if (opCurso.isPresent()){

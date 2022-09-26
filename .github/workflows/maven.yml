@@ -67,4 +67,4 @@ jobs:
         uses: actions/checkout@v3
       - run: sh scripts/email.sh
         env:
-          EMAIL: raphael.r@ges.inatel.br
+          EMAIL: rrftrade@gmail.com

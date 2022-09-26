@@ -56,3 +56,15 @@ jobs:
         with:
           name: API-jar
           path: lab_rest_server/target/*.jar
+
+  scripts:
+
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Executar scripts versionados
+        uses: actions/checkout@v3
+      - run: sh scripts/email.sh
+        env:
+          EMAIL: raphael.r@ges.inatel.br
